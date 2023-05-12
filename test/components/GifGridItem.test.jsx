@@ -9,4 +9,15 @@ describe('Pruebas en <GifGridItem />', () => {
         expect(container).toMatchSnapshot();
      })
 
+     test('Debe de mostrar la imagen con el rul y el alt indicado', () => {
+        render(<GifGridItem title={title} url={url} />)
+        //screen.debug()
+        expect(screen.getByRole('img').src).toBe(url)
+        expect(screen.getByRole('img').alt).toBe(title)
+    });
+    
+    test('Debe de mostrar el titulo en el componente', () => {
+         render(<GifGridItem title={title} url={url} />)
+         expect(screen.getByText(title)).toBeTruthy()
+     });
  })

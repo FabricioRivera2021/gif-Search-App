@@ -4,6 +4,8 @@ import { GifGridItem } from "./GifGridItem";
 //import { getGifs } from "../helpers/getGifs";
 import { useFetchGifs } from "../hooks/useFetchGifs";
 
+import {PropTypes} from 'prop-types';
+
 // import React from 'react'; no es necesario
 
 /* Componente para crear los gifs que se van a estar trayendo desde la API */
@@ -52,4 +54,8 @@ export const GifGrid = ({categoria}) => {
             </div>
         </>
     )
+}
+
+GifGrid.propTypes = {
+    categoria: PropTypes.string.isRequired,
 }

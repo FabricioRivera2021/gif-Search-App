@@ -1,4 +1,5 @@
 import { useState } from "react";
+import PropTypes from 'prop-types'
 
                             /* aqui vienen las props, esto
                             seria lo mismo que poner
@@ -19,7 +20,7 @@ export const AddCategory = ({onNewCategory}) => {
     const onSubmit = (event) => {
         event.preventDefault();
         if (inputValue.trim().length < 1){
-            console.warn('error: el valor a ingresar esta vacio');
+            console.log('error: el valor a ingresar esta vacio');
         }else{
             //cat ya tendria que venir desde la funcion que esta echa en GifSearchApp
             //Ahora directamente se llama a la funcion y solo se le pasa el valor
@@ -32,7 +33,7 @@ export const AddCategory = ({onNewCategory}) => {
 
     return (
         // <form onSubmit={(event) => onSubmit(event)}>
-        <form onSubmit={onSubmit}>
+        <form onSubmit={onSubmit} aria-label="form">
             <input 
                 type="text"
                 placeholder="Buscar gifs"
@@ -41,4 +42,8 @@ export const AddCategory = ({onNewCategory}) => {
             />
         </form>
     )
+}
+
+AddCategory.propTypes = {
+    onNewCategory: PropTypes.func.isRequired,
 }
